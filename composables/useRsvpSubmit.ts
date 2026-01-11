@@ -1,9 +1,13 @@
-export interface RsvpFormData {
+export interface Guest {
   name: string
+  email?: string  // Only first guest has email
+  dietary: string
+}
+
+export interface RsvpFormData {
   numberOfGuests: number
-  email: string
-  dietaryRequirements: string
   attending: boolean
+  guests: Guest[]
   website?: string // Honeypot field
 }
 
@@ -26,13 +30,32 @@ export const useRsvpSubmit = () => {
         throw new Error('Invalid submission')
       }
 
+      // Validate guest count matches array length
+      if (formData.guests.length !== formData.numberOfGuests) {
+        throw new Error('Guest count mismatch')
+      }
+
+      // Validate all guests have names (minimum 2 characters)
+      for (let i = 0; i < formData.guests.length; i++) {
+        const guest = formData.guests[i]
+        if (!guest.name || guest.name.trim().length < 2) {
+          throw new Error(`Guest ${i + 1} name is required (minimum 2 characters)`)
+        }
+      }
+
+      // Validate first guest has valid email (contains '@')
+      if (formData.guests.length > 0) {
+        const firstGuest = formData.guests[0]
+        if (!firstGuest.email || !firstGuest.email.includes('@')) {
+          throw new Error('Valid email is required for the first guest')
+        }
+      }
+
       // Prepare payload
       const payload = {
-        name: formData.name,
         numberOfGuests: formData.numberOfGuests,
-        email: formData.email,
-        dietaryRequirements: formData.dietaryRequirements,
         attending: formData.attending,
+        guests: formData.guests,
         locale: locale.value
       }
 

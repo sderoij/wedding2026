@@ -25,65 +25,71 @@
 
         <!-- RSVP Form -->
         <form v-if="!submitSuccess" @submit.prevent="handleSubmit" class="space-y-6">
-          <!-- Name -->
-          <div>
-            <label for="name" class="block text-sm font-medium text-forest-dark mb-1">
-              {{ $t('rsvp.form.name') }}*
-            </label>
-            <input
-              id="name"
-              v-model="formData.name"
-              type="text"
-              :placeholder="$t('rsvp.form.namePlaceholder')"
-              class="w-full px-4 py-2 border border-forest-sage/30 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
-              required
-              minlength="2"
-            />
-          </div>
-
           <!-- Number of Guests -->
           <div>
             <label for="guests" class="block text-sm font-medium text-forest-dark mb-1">
               {{ $t('rsvp.form.numberOfGuests') }}*
             </label>
-            <input
+            <select
               id="guests"
               v-model.number="formData.numberOfGuests"
-              type="number"
-              min="1"
-              max="10"
               class="w-full px-4 py-2 border border-forest-sage/30 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
               required
-            />
+            >
+              <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
+            </select>
           </div>
 
-          <!-- Email -->
-          <div>
-            <label for="email" class="block text-sm font-medium text-forest-dark mb-1">
-              {{ $t('rsvp.form.email') }}*
-            </label>
-            <input
-              id="email"
-              v-model="formData.email"
-              type="email"
-              :placeholder="$t('rsvp.form.emailPlaceholder')"
-              class="w-full px-4 py-2 border border-forest-sage/30 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
-              required
-            />
-          </div>
+          <!-- Dynamic Guest Fields -->
+          <div v-for="(guest, index) in formData.guests" :key="index" class="border border-forest-sage/20 rounded-lg p-6 bg-white/50">
+            <h3 class="text-lg font-semibold text-forest-dark mb-4">
+              {{ index === 0 ? $t('rsvp.form.guestNumberYou', { number: index + 1 }) : $t('rsvp.form.guestNumber', { number: index + 1 }) }}
+            </h3>
 
-          <!-- Dietary Requirements -->
-          <div>
-            <label for="dietary" class="block text-sm font-medium text-forest-dark mb-1">
-              {{ $t('rsvp.form.dietaryRequirements') }}
-            </label>
-            <textarea
-              id="dietary"
-              v-model="formData.dietaryRequirements"
-              :placeholder="$t('rsvp.form.dietaryPlaceholder')"
-              rows="3"
-              class="w-full px-4 py-2 border border-forest-sage/30 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
-            ></textarea>
+            <!-- Guest Name -->
+            <div class="mb-4">
+              <label :for="`guest-name-${index}`" class="block text-sm font-medium text-forest-dark mb-1">
+                {{ $t('rsvp.form.guestName') }}*
+              </label>
+              <input
+                :id="`guest-name-${index}`"
+                v-model="guest.name"
+                type="text"
+                :placeholder="$t('rsvp.form.guestNamePlaceholder', { number: index + 1 })"
+                class="w-full px-4 py-2 border border-forest-sage/30 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
+                required
+                minlength="2"
+              />
+            </div>
+
+            <!-- Email (only for first guest) -->
+            <div v-if="index === 0" class="mb-4">
+              <label for="email" class="block text-sm font-medium text-forest-dark mb-1">
+                {{ $t('rsvp.form.email') }}*
+              </label>
+              <input
+                id="email"
+                v-model="guest.email"
+                type="email"
+                :placeholder="$t('rsvp.form.emailPlaceholder')"
+                class="w-full px-4 py-2 border border-forest-sage/30 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
+                required
+              />
+            </div>
+
+            <!-- Dietary Requirements -->
+            <div>
+              <label :for="`guest-dietary-${index}`" class="block text-sm font-medium text-forest-dark mb-1">
+                {{ $t('rsvp.form.guestDietary') }}
+              </label>
+              <textarea
+                :id="`guest-dietary-${index}`"
+                v-model="guest.dietary"
+                :placeholder="$t('rsvp.form.guestDietaryPlaceholder')"
+                rows="2"
+                class="w-full px-4 py-2 border border-forest-sage/30 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
+              ></textarea>
+            </div>
           </div>
 
           <!-- Attending -->
@@ -140,6 +146,8 @@
 </template>
 
 <script setup lang="ts">
+import type { Guest } from '~/composables/useRsvpSubmit'
+
 definePageMeta({
   middleware: 'auth'
 })
@@ -148,12 +156,27 @@ const { t } = useI18n()
 const { isSubmitting, submitError, submitSuccess, submitRsvp } = useRsvpSubmit()
 
 const formData = ref({
-  name: '',
   numberOfGuests: 1,
-  email: '',
-  dietaryRequirements: '',
   attending: true,
+  guests: [
+    { name: '', email: '', dietary: '' }
+  ] as Guest[],
   website: '' // Honeypot
+})
+
+// Watch numberOfGuests and adjust guests array
+watch(() => formData.value.numberOfGuests, (newCount, oldCount) => {
+  const currentGuests = formData.value.guests
+
+  if (newCount > oldCount) {
+    // Add new guests
+    for (let i = oldCount; i < newCount; i++) {
+      currentGuests.push({ name: '', dietary: '' })
+    }
+  } else if (newCount < oldCount) {
+    // Remove excess guests
+    currentGuests.splice(newCount)
+  }
 })
 
 const handleSubmit = async () => {

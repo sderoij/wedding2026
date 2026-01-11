@@ -30,7 +30,13 @@
       "attendingYes": "Yes, I'll be there!",
       "attendingNo": "Unfortunately not",
       "submit": "Submit",
-      "submitting": "Submitting..."
+      "submitting": "Submitting...",
+      "guestNumber": "Guest {number}",
+      "guestNumberYou": "Guest {number} (you)",
+      "guestName": "Name",
+      "guestNamePlaceholder": "Name of guest {number}",
+      "guestDietary": "Dietary requirements/allergies",
+      "guestDietaryPlaceholder": "E.g.: vegetarian, lactose intolerant..."
     },
     "success": "Thank you! Your RSVP has been received.",
     "error": "Something went wrong. Please try again.",

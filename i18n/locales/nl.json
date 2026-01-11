@@ -30,7 +30,13 @@
       "attendingYes": "Ja, ik kom!",
       "attendingNo": "Helaas niet",
       "submit": "Verzenden",
-      "submitting": "Verzenden..."
+      "submitting": "Verzenden...",
+      "guestNumber": "Gast {number}",
+      "guestNumberYou": "Gast {number} (u)",
+      "guestName": "Naam",
+      "guestNamePlaceholder": "Naam van gast {number}",
+      "guestDietary": "Dieetwensen/allergieën",
+      "guestDietaryPlaceholder": "Bijvoorbeeld: vegetarisch, lactose-intolerant..."
     },
     "success": "Bedankt! Je RSVP is ontvangen.",
     "error": "Er ging iets mis. Probeer het opnieuw.",
