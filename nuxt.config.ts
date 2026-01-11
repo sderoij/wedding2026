@@ -28,6 +28,7 @@ export default defineNuxtConfig({
       title: 'W 💍 S - 10 juli 2026',
       meta: [
         { name: 'robots', content: 'noindex, nofollow' },
+        { name: 'googlebot', content: 'noindex, nofollow' },
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ],
