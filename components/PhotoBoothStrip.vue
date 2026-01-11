@@ -15,11 +15,14 @@
           :key="index"
           class="photo-frame"
         >
-          <img
-            :src="photo"
-            :alt="`Photo ${index + 1}`"
-            class="photo"
-          />
+          <Transition name="crossfade">
+            <img
+              :key="photo"
+              :src="photo"
+              :alt="`Photo ${index + 1}`"
+              class="photo"
+            />
+          </Transition>
         </div>
       </div>
 
@@ -164,14 +167,36 @@ onUnmounted(() => {
   background: #F6F5F1;
   border: 2px solid #2F4F3E;
   border-radius: 2px;
+  position: relative;
 }
 
 .photo {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.5s ease-in-out;
   filter: grayscale(100%);
+}
+
+/* Crossfade transitions */
+.crossfade-enter-active,
+.crossfade-leave-active {
+  transition: opacity 0.8s ease-in-out;
+}
+
+.crossfade-enter-from {
+  opacity: 0;
+}
+
+.crossfade-leave-to {
+  opacity: 0;
+}
+
+.crossfade-enter-to,
+.crossfade-leave-from {
+  opacity: 1;
 }
 
 /* Rotation based on orientation */
