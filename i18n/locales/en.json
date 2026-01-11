@@ -1,0 +1,59 @@
+{
+  "nav": {
+    "home": "Home",
+    "rsvp": "RSVP",
+    "accommodation": "Accommodation"
+  },
+  "home": {
+    "title": "We're getting married!",
+    "subtitle": "July 10, 2026",
+    "location": {
+      "title": "Location",
+      "venue": "To be determined",
+      "address": "Address to follow"
+    },
+    "schedule": {
+      "title": "Schedule",
+      "ceremony": "Ceremony: 2:00 PM",
+      "reception": "Reception: 3:30 PM",
+      "dinner": "Dinner: 6:00 PM",
+      "party": "Party: 9:00 PM"
+    },
+    "rsvpCta": "Let us know if you'll be there!"
+  },
+  "rsvp": {
+    "title": "RSVP",
+    "description": "Fill out the form to let us know if you're coming",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "numberOfGuests": "Number of guests",
+      "email": "Email",
+      "emailPlaceholder": "your{'@'}email.com",
+      "dietaryRequirements": "Dietary requirements/allergies",
+      "dietaryPlaceholder": "E.g.: vegetarian, lactose intolerant...",
+      "attending": "Will you attend?",
+      "attendingYes": "Yes, I'll be there!",
+      "attendingNo": "Unfortunately not",
+      "submit": "Submit",
+      "submitting": "Submitting..."
+    },
+    "success": "Thank you! Your RSVP has been received.",
+    "error": "Something went wrong. Please try again.",
+    "errorEmailUsed": "This email address has already been used."
+  },
+  "accommodation": {
+    "title": "Accommodation",
+    "description": "Recommended hotels and stays nearby",
+    "distance": "Distance",
+    "price": "Price range",
+    "visitWebsite": "Visit website"
+  },
+  "access": {
+    "title": "Access Code",
+    "description": "Enter the access code you received on your invitation",
+    "codePlaceholder": "Access code",
+    "submit": "Confirm",
+    "error": "Incorrect code. Please try again."
+  }
+}
