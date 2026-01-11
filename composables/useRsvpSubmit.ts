@@ -1,9 +1,13 @@
-export interface RsvpFormData {
+export interface Guest {
   name: string
+  email?: string  // Only first guest has email
+  dietary: string
+}
+
+export interface RsvpFormData {
   numberOfGuests: number
-  email: string
-  dietaryRequirements: string
   attending: boolean
+  guests: Guest[]
   website?: string // Honeypot field
 }
 
