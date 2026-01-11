@@ -44,7 +44,10 @@
   },
   "accommodation": {
     "title": "Accommodatie",
-    "description": "Aanbevolen hotels en verblijven in de buurt"
+    "description": "Aanbevolen hotels en verblijven in de buurt",
+    "distance": "Afstand",
+    "price": "Prijsindicatie",
+    "visitWebsite": "Bekijk website"
   },
   "access": {
     "title": "Toegangscode",

@@ -44,7 +44,10 @@
   },
   "accommodation": {
     "title": "Accommodation",
-    "description": "Recommended hotels and stays nearby"
+    "description": "Recommended hotels and stays nearby",
+    "distance": "Distance",
+    "price": "Price range",
+    "visitWebsite": "Visit website"
   },
   "access": {
     "title": "Access Code",
