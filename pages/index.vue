@@ -23,7 +23,7 @@
             <PhotoBoothStrip :photos="photosLeft" orientation="left" />
           </div>
           <div class="strip-wrapper right-strip hidden md:block">
-            <PhotoBoothStrip :photos="photosRight" orientation="right" />
+            <PhotoBoothStrip :photos="photosRight" orientation="right" :delay="2000" />
           </div>
         </div>
       </section>

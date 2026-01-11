@@ -37,6 +37,7 @@
 const props = defineProps<{
   photos: string[]
   orientation?: 'left' | 'right'
+  delay?: number  // Delay in milliseconds before starting rotation
 }>()
 
 const orientation = computed(() => props.orientation || 'left')
@@ -54,19 +55,30 @@ const currentPhotos = computed(() => {
   ]
 })
 
-// Auto-rotate every 4 seconds
+// Auto-rotate every 4 seconds, with optional initial delay
 let interval: NodeJS.Timeout | null = null
+let timeout: NodeJS.Timeout | null = null
 
 onMounted(() => {
   if (props.photos.length > 3) {
-    interval = setInterval(() => {
-      currentIndex.value = (currentIndex.value + 1) % props.photos.length
-    }, 4000)
+    const startRotation = () => {
+      interval = setInterval(() => {
+        currentIndex.value = (currentIndex.value + 1) % props.photos.length
+      }, 4000)
+    }
+
+    // Start rotation after delay, or immediately if no delay
+    if (props.delay) {
+      timeout = setTimeout(startRotation, props.delay)
+    } else {
+      startRotation()
+    }
   }
 })
 
 onUnmounted(() => {
   if (interval) clearInterval(interval)
+  if (timeout) clearTimeout(timeout)
 })
 </script>
 
