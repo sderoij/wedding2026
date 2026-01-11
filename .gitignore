@@ -1,0 +1,4 @@
+# Gitignore for bruiloft project
+
+# Worktrees
+.worktrees/
