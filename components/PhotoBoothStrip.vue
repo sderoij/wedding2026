@@ -42,43 +42,71 @@ const props = defineProps<{
 
 const orientation = computed(() => props.orientation || 'left')
 
-const currentIndex = ref(0)
-const currentPhotos = computed(() => {
+// Divide photos into 3 subsets (one per frame)
+const photoSubsets = computed(() => {
   const photos = props.photos
-  if (photos.length === 0) return []
+  if (photos.length === 0) return [[], [], []]
 
-  // Always show 3 photos, cycling through the array
+  const subset1: string[] = []
+  const subset2: string[] = []
+  const subset3: string[] = []
+
+  photos.forEach((photo, index) => {
+    if (index % 3 === 0) subset1.push(photo)
+    else if (index % 3 === 1) subset2.push(photo)
+    else subset3.push(photo)
+  })
+
+  return [subset1, subset2, subset3]
+})
+
+// Separate index for each frame
+const frameIndices = ref([0, 0, 0])
+
+const currentPhotos = computed(() => {
+  const subsets = photoSubsets.value
   return [
-    photos[currentIndex.value % photos.length],
-    photos[(currentIndex.value + 1) % photos.length],
-    photos[(currentIndex.value + 2) % photos.length]
+    subsets[0][frameIndices.value[0] % subsets[0].length] || '',
+    subsets[1][frameIndices.value[1] % subsets[1].length] || '',
+    subsets[2][frameIndices.value[2] % subsets[2].length] || ''
   ]
 })
 
-// Auto-rotate every 4 seconds, with optional initial delay
-let interval: NodeJS.Timeout | null = null
-let timeout: NodeJS.Timeout | null = null
+// Intervals for each frame
+const intervals: (NodeJS.Timeout | null)[] = [null, null, null]
+const timeouts: (NodeJS.Timeout | null)[] = [null, null, null]
 
 onMounted(() => {
-  if (props.photos.length > 3) {
-    const startRotation = () => {
-      interval = setInterval(() => {
-        currentIndex.value = (currentIndex.value + 1) % props.photos.length
-      }, 4000)
-    }
+  const subsets = photoSubsets.value
 
-    // Start rotation after delay, or immediately if no delay
-    if (props.delay) {
-      timeout = setTimeout(startRotation, props.delay)
-    } else {
-      startRotation()
+  // Start rotation for each frame that has multiple photos
+  subsets.forEach((subset, frameIndex) => {
+    if (subset.length > 1) {
+      const startRotation = () => {
+        intervals[frameIndex] = setInterval(() => {
+          frameIndices.value[frameIndex] = (frameIndices.value[frameIndex] + 1) % subset.length
+        }, 6000) // 6 seconds per photo
+      }
+
+      // Stagger each frame within the strip
+      const frameDelay = (props.delay || 0) + (frameIndex * 2000) // 0s, 2s, 4s
+
+      if (frameDelay > 0) {
+        timeouts[frameIndex] = setTimeout(startRotation, frameDelay)
+      } else {
+        startRotation()
+      }
     }
-  }
+  })
 })
 
 onUnmounted(() => {
-  if (interval) clearInterval(interval)
-  if (timeout) clearTimeout(timeout)
+  intervals.forEach(interval => {
+    if (interval) clearInterval(interval)
+  })
+  timeouts.forEach(timeout => {
+    if (timeout) clearTimeout(timeout)
+  })
 })
 </script>
 
