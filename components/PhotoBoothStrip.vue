@@ -162,12 +162,14 @@ onUnmounted(() => {
 }
 
 .photo-frame {
+  width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #F6F5F1;
   border: 2px solid #2F4F3E;
   border-radius: 2px;
   position: relative;
+  display: block;
 }
 
 .photo {
