@@ -23,49 +23,62 @@ A bilingual (Dutch/English) wedding website with RSVP tracking, built with Nuxt 
 
 ## Setup
 
-### 1. Install Dependencies
+### Prerequisites
 
-```bash
-npm install
-```
+- Node.js 18+ and npm
+- Google account with access to Google Sheets
 
-### 2. Setup Google Sheets
+### Installation
 
-Follow instructions in `docs/google-apps-script.md` to:
-1. Create Google Sheet with RSVP columns
-2. Deploy Apps Script webhook
-3. Get webhook URL
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Copy `.env.example` to `.env`: `cp .env.example .env`
 
-### 3. Configure Environment
+### Google Apps Script Setup
 
-Create `.env` file:
-```
-NUXT_PUBLIC_APPS_SCRIPT_URL=https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec
-```
+The RSVP form submits data to Google Sheets via Apps Script. Follow these steps:
 
-### 4. Run Development Server
+1. Create a Google Sheet named "RSVPs" (or your preferred name)
+2. Follow the deployment guide: [docs/apps-script/DEPLOYMENT.md](docs/apps-script/DEPLOYMENT.md)
+3. Copy the deployed Web App URL
+4. Update `.env` with your URL:
+   ```
+   NUXT_PUBLIC_APPS_SCRIPT_URL=https://script.google.com/macros/s/YOUR_ID/exec
+   ```
+
+### Development
+
+Run the dev server:
 
 ```bash
 npm run dev
 ```
 
-Open http://localhost:3000
+Visit: `http://localhost:3000`
 
-### 5. Access Code
+Default access code: `wedding2026` (change in `pages/access.vue` line 22)
 
-Default access code: `wedding2026`
+### Build
 
-Change in `pages/access.vue` line 22.
+Generate static site:
 
-## Deployment
+```bash
+npm run generate
+```
 
-### GitHub Pages Setup
+Output will be in `dist/` directory.
+
+### Deployment
+
+This project is configured for GitHub Pages with base URL `/wedding2026/`.
+
+#### GitHub Pages Setup
 
 1. Go to repo Settings > Pages
 2. Source: "GitHub Actions"
 3. Add secret: `APPS_SCRIPT_URL` (your Apps Script webhook URL)
 
-### Deploy
+#### Deploy
 
 Push to `main` branch:
 ```bash
