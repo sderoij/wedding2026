@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'nl',
     strategy: 'prefix',
-    langDir: 'locales/',
+    langDir: 'i18n/locales/',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
@@ -21,6 +21,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: '/wedding2026/',
     head: {
       title: 'Wedding - July 10, 2026',
       meta: [
