@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Home",
+    "rsvp": "RSVP",
+    "accommodation": "Accommodatie"
+  },
+  "home": {
+    "title": "We gaan trouwen!",
+    "subtitle": "10 juli 2026",
+    "location": {
+      "title": "Locatie",
+      "venue": "Te bepalen",
+      "address": "Adres volgt"
+    },
+    "schedule": {
+      "title": "Tijden",
+      "ceremony": "Ceremonie: 14:00",
+      "reception": "Receptie: 15:30",
+      "dinner": "Diner: 18:00",
+      "party": "Feest: 21:00"
+    },
+    "rsvpCta": "Laat ons weten of je erbij bent!"
+  },
+  "rsvp": {
+    "title": "RSVP",
+    "description": "Vul het formulier in om ons te laten weten of je komt",
+    "form": {
+      "name": "Naam",
+      "namePlaceholder": "Jouw naam",
+      "numberOfGuests": "Aantal personen",
+      "email": "Email",
+      "emailPlaceholder": "jouw@email.nl",
+      "dietaryRequirements": "Dieetwensen/allergieën",
+      "dietaryPlaceholder": "Bijvoorbeeld: vegetarisch, lactose-intolerant...",
+      "attending": "Kun je erbij zijn?",
+      "attendingYes": "Ja, ik kom!",
+      "attendingNo": "Helaas niet",
+      "submit": "Verzenden",
+      "submitting": "Verzenden..."
+    },
+    "success": "Bedankt! Je RSVP is ontvangen.",
+    "error": "Er ging iets mis. Probeer het opnieuw.",
+    "errorEmailUsed": "Dit emailadres is al gebruikt."
+  },
+  "accommodation": {
+    "title": "Accommodatie",
+    "description": "Aanbevolen hotels en verblijven in de buurt"
+  },
+  "access": {
+    "title": "Toegangscode",
+    "description": "Voer de toegangscode in die je op de uitnodiging hebt ontvangen",
+    "codePlaceholder": "Toegangscode",
+    "submit": "Bevestigen",
+    "error": "Onjuiste code. Probeer het opnieuw."
+  }
+}
