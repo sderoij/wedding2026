@@ -29,7 +29,7 @@
       "namePlaceholder": "Your name",
       "numberOfGuests": "Number of guests",
       "email": "Email",
-      "emailPlaceholder": "your@email.com",
+      "emailPlaceholder": "your{'@'}email.com",
       "dietaryRequirements": "Dietary requirements/allergies",
       "dietaryPlaceholder": "E.g.: vegetarian, lactose intolerant...",
       "attending": "Will you attend?",

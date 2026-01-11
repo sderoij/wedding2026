@@ -29,7 +29,7 @@
       "namePlaceholder": "Jouw naam",
       "numberOfGuests": "Aantal personen",
       "email": "Email",
-      "emailPlaceholder": "jouw@email.nl",
+      "emailPlaceholder": "jouw{'@'}email.nl",
       "dietaryRequirements": "Dieetwensen/allergieën",
       "dietaryPlaceholder": "Bijvoorbeeld: vegetarisch, lactose-intolerant...",
       "attending": "Kun je erbij zijn?",
