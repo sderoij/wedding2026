@@ -7,18 +7,12 @@
   "home": {
     "title": "We're getting married!",
     "subtitle": "July 10, 2026",
+    "intro": "We are delighted to announce that we're getting married! Save the date and celebrate this special day with us.",
     "location": {
       "title": "Location",
-      "venue": "To be determined",
-      "address": "Address to follow"
+      "address": ""
     },
-    "schedule": {
-      "title": "Schedule",
-      "ceremony": "Ceremony: 2:00 PM",
-      "reception": "Reception: 3:30 PM",
-      "dinner": "Dinner: 6:00 PM",
-      "party": "Party: 9:00 PM"
-    },
+    "moreInfo": "More information to follow",
     "rsvpCta": "Let us know if you'll be there!"
   },
   "rsvp": {

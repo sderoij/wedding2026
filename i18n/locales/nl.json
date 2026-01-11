@@ -7,18 +7,12 @@
   "home": {
     "title": "We gaan trouwen!",
     "subtitle": "10 juli 2026",
+    "intro": "We zijn verheugd om aan te kondigen dat we gaan trouwen! Bewaar deze datum en vier samen met ons deze speciale dag.",
     "location": {
       "title": "Locatie",
-      "venue": "Te bepalen",
-      "address": "Adres volgt"
+      "address": ""
     },
-    "schedule": {
-      "title": "Tijden",
-      "ceremony": "Ceremonie: 14:00",
-      "reception": "Receptie: 15:30",
-      "dinner": "Diner: 18:00",
-      "party": "Feest: 21:00"
-    },
+    "moreInfo": "Meer informatie volgt",
     "rsvpCta": "Laat ons weten of je erbij bent!"
   },
   "rsvp": {
