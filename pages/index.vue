@@ -23,7 +23,7 @@
             <PhotoBoothStrip :photos="photosLeft" orientation="left" />
           </div>
           <div class="strip-wrapper right-strip hidden md:block">
-            <PhotoBoothStrip :photos="photosRight" orientation="right" :delay="2000" />
+            <PhotoBoothStrip :photos="photosRight" orientation="right" :delay="1000" />
           </div>
         </div>
       </section>
@@ -82,7 +82,10 @@ const photosLeft = ref([
   '/wedding2026/images/image00010.jpeg',
   '/wedding2026/images/image00011.jpeg',
   '/wedding2026/images/image00012.jpeg',
-  '/wedding2026/images/image00013.jpeg'
+  '/wedding2026/images/image00013.jpeg',
+  '/wedding2026/images/IMG_0738.jpeg',
+  '/wedding2026/images/IMG_2778.jpeg',
+  '/wedding2026/images/IMG_4367.jpeg'
 ])
 
 // Right strip photos
@@ -99,7 +102,9 @@ const photosRight = ref([
   '/wedding2026/images/image00023.jpeg',
   '/wedding2026/images/image00024.jpeg',
   '/wedding2026/images/image00025.jpeg',
-  '/wedding2026/images/IMG_1113.jpg'
+  '/wedding2026/images/IMG_1113.jpg',
+  '/wedding2026/images/IMG_6915.jpeg',
+  '/wedding2026/images/IMG_8652.jpeg'
 ])
 </script>
 
