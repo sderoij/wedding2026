@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', serif;
+  }
+
+  body {
+    background-color: #F6F5F1;
+  }
+}
+
+@layer components {
+  /* Subtiele textuur achtergrond */
+  .textured-bg {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(47, 79, 62, 0.01) 2px,
+        rgba(47, 79, 62, 0.01) 4px
+      );
+  }
+
+  /* Decoratieve lijn met accent */
+  .decorative-line {
+    position: relative;
+  }
+
+  .decorative-line::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background-color: #B08A57;
+  }
+}

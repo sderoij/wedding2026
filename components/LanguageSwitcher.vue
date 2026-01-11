@@ -7,8 +7,8 @@
       :class="[
         'px-3 py-1 rounded-md text-sm font-medium transition-colors',
         locale === loc.code
-          ? 'bg-gray-900 text-white'
-          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+          ? 'bg-forest-dark text-warmwhite'
+          : 'bg-forest-sage/20 text-forest-dark hover:bg-forest-sage/30'
       ]"
     >
       {{ loc.code.toUpperCase() }}

@@ -5,6 +5,8 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss'],
 
+  css: ['~/assets/css/main.css'],
+
   i18n: {
     locales: [
       { code: 'nl', iso: 'nl-NL', file: 'nl.json', name: 'Nederlands' },
@@ -28,6 +30,11 @@ export default defineNuxtConfig({
         { name: 'robots', content: 'noindex, nofollow' },
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      ],
+      link: [
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap' }
       ]
     }
   },
