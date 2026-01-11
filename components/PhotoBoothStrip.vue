@@ -131,6 +131,7 @@ onUnmounted(() => {
   height: 100%;
   object-fit: cover;
   transition: opacity 0.5s ease-in-out;
+  filter: grayscale(100%);
 }
 
 /* Rotation based on orientation */

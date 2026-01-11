@@ -31,7 +31,7 @@
       <!-- More Info Section -->
       <section class="mb-12 text-center">
         <p class="text-xl text-forest-sage italic">
-          {{ $t('home.moreInfo') }}
+          {{ $t('home.moreInfo') }} 🐧
         </p>
       </section>
 
@@ -68,21 +68,38 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 
-// Placeholder photos - replace with actual photos later
 // Left strip photos
 const photosLeft = ref([
-  'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=300&fit=crop'
+  '/wedding2026/images/image00001.jpeg',
+  '/wedding2026/images/image00002.jpeg',
+  '/wedding2026/images/image00003.jpeg',
+  '/wedding2026/images/image00004.jpeg',
+  '/wedding2026/images/image00005.jpeg',
+  '/wedding2026/images/image00006.jpeg',
+  '/wedding2026/images/image00007.jpeg',
+  '/wedding2026/images/image00008.jpeg',
+  '/wedding2026/images/image00009.jpeg',
+  '/wedding2026/images/image00010.jpeg',
+  '/wedding2026/images/image00011.jpeg',
+  '/wedding2026/images/image00012.jpeg',
+  '/wedding2026/images/image00013.jpeg'
 ])
 
 // Right strip photos
 const photosRight = ref([
-  'https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=400&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&h=300&fit=crop',
-  'https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&h=300&fit=crop'
+  '/wedding2026/images/image00014.jpeg',
+  '/wedding2026/images/image00015.jpeg',
+  '/wedding2026/images/image00016.jpeg',
+  '/wedding2026/images/image00017.jpeg',
+  '/wedding2026/images/image00018.jpeg',
+  '/wedding2026/images/image00019.jpeg',
+  '/wedding2026/images/image00020.jpeg',
+  '/wedding2026/images/image00021.jpeg',
+  '/wedding2026/images/image00022.jpeg',
+  '/wedding2026/images/image00023.jpeg',
+  '/wedding2026/images/image00024.jpeg',
+  '/wedding2026/images/image00025.jpeg',
+  '/wedding2026/images/IMG_1113.jpg'
 ])
 </script>
 
