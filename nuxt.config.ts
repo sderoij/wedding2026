@@ -25,7 +25,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/wedding2026/',
     head: {
-      title: 'Wedding - July 10, 2026',
+      title: 'W 💍 S - 10 juli 2026',
       meta: [
         { name: 'robots', content: 'noindex, nofollow' },
         { charset: 'utf-8' },

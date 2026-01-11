@@ -4,8 +4,8 @@
       <div class="flex justify-between items-center h-16">
         <!-- Logo/Title -->
         <div class="flex-shrink-0">
-          <NuxtLink :to="localePath('/')" class="text-xl font-semibold text-forest-dark">
-            {{ $t('home.title') }}
+          <NuxtLink :to="localePath('/')" class="text-2xl font-semibold text-forest-dark tracking-wider">
+            W 💍 S
           </NuxtLink>
         </div>
 
