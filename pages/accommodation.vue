@@ -31,23 +31,46 @@ definePageMeta({
 
 const { t } = useI18n()
 
-// Sample hotel data - replace with real data
 const hotels = [
   {
     id: 1,
-    name: 'Hotel Example 1',
-    distance: '2 km',
-    price: '€100-150',
-    image: 'https://via.placeholder.com/400x300',
-    website: 'https://example.com'
+    name: 'Fletcher Hotel-Restaurant Oud London',
+    distance: '~6 km',
+    price: '€65-105',
+    image: 'https://picsum.photos/seed/oudlondon/400/300',
+    website: 'https://www.hoteloudlondon.nl/en/'
   },
   {
     id: 2,
-    name: 'Hotel Example 2',
-    distance: '3 km',
-    price: '€80-120',
-    image: 'https://via.placeholder.com/400x300',
-    website: 'https://example.com'
+    name: 'Hotel Woudschoten',
+    distance: '~8 km',
+    price: '€98+',
+    image: 'https://picsum.photos/seed/woudschoten/400/300',
+    website: 'https://www.woudschoten.nl/en/'
+  },
+  {
+    id: 3,
+    name: 'Kasteel Kerckebosch',
+    distance: '~7 km',
+    price: '€150+',
+    image: 'https://picsum.photos/seed/kerckebosch/400/300',
+    website: 'https://www.hotelkerckebosch.nl/'
+  },
+  {
+    id: 4,
+    name: 'Logies op Dreef',
+    distance: '~10 km',
+    price: '€86+',
+    image: 'https://picsum.photos/seed/dreef/400/300',
+    website: 'https://logiesopdreef.nl/en/'
+  },
+  {
+    id: 5,
+    name: 'Vakantiepark De Krakeling',
+    distance: '~5 km',
+    price: 'Variabel',
+    image: 'https://picsum.photos/seed/krakeling/400/300',
+    website: 'https://www.dekrakeling.nl/'
   }
 ]
 </script>
