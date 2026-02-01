@@ -6,7 +6,7 @@
  * and writes data to Google Sheets.
  *
  * Sheet Structure (columns A-I):
- * - Timestamp: ISO datetime when RSVP was submitted
+ * - Timestamp: Dutch formatted datetime (DD-MM-YYYY HH:MM)
  * - RSVP_ID: Auto-increment ID starting from 1
  * - Email: Guest email address
  * - Aanwezig: "ja" or "nee" (attending status)
@@ -60,8 +60,8 @@ function doPost(e) {
     // Get the next RSVP_ID
     const rsvpId = getNextRsvpId(sheet);
 
-    // Get current timestamp in ISO format
-    const timestamp = new Date().toISOString();
+    // Get current timestamp in Dutch format (DD-MM-YYYY HH:MM)
+    const timestamp = formatDutchTimestamp(new Date());
 
     // Prepare rows to append
     const rows = [];
@@ -204,6 +204,21 @@ function getNextRsvpId(sheet) {
   }
 
   return maxId + 1;
+}
+
+/**
+ * Formats a date in Dutch format (DD-MM-YYYY HH:MM)
+ * @param {Date} date - The date to format
+ * @returns {string} Formatted date string
+ */
+function formatDutchTimestamp(date) {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  const hours = String(date.getHours()).padStart(2, '0');
+  const minutes = String(date.getMinutes()).padStart(2, '0');
+
+  return `${day}-${month}-${year} ${hours}:${minutes}`;
 }
 
 /**
