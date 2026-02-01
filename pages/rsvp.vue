@@ -7,6 +7,12 @@
         <h1 class="text-4xl font-bold text-forest-dark mb-4 decorative-line pb-3">
           {{ $t('rsvp.title') }}
         </h1>
+
+        <!-- Welcome Message -->
+        <p v-if="currentGuest" class="text-xl text-gold mb-4">
+          {{ $t('rsvp.welcome', { name: currentGuest.name }) }}
+        </p>
+
         <p class="text-forest-sage mb-8">
           {{ $t('rsvp.description') }}
         </p>
@@ -36,7 +42,7 @@
               class="w-full px-4 py-2 border border-forest-sage/30 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
               required
             >
-              <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
+              <option v-for="n in maxGuests" :key="n" :value="n">{{ n }}</option>
             </select>
           </div>
 
@@ -154,6 +160,15 @@ definePageMeta({
 
 const { t } = useI18n()
 const { isSubmitting, submitError, submitSuccess, submitRsvp } = useRsvpSubmit()
+const { currentGuest, loadFromStorage } = useGuestCode()
+
+// Ensure guest data is loaded
+onMounted(() => {
+  loadFromStorage()
+})
+
+// Get max guests from current guest data (fallback to 1)
+const maxGuests = computed(() => currentGuest.value?.maxGuests ?? 1)
 
 const formData = ref({
   numberOfGuests: 1,
@@ -163,6 +178,13 @@ const formData = ref({
   ] as Guest[],
   website: '' // Honeypot
 })
+
+// Pre-fill first guest name when currentGuest is loaded
+watch(currentGuest, (guest) => {
+  if (guest && formData.value.guests[0] && !formData.value.guests[0].name) {
+    formData.value.guests[0].name = guest.name
+  }
+}, { immediate: true })
 
 // Watch numberOfGuests and adjust guests array
 watch(() => formData.value.numberOfGuests, (newCount, oldCount) => {

@@ -1,0 +1,14 @@
+{
+  "dorien": {
+    "name": "Dorien",
+    "maxGuests": 2
+  },
+  "sjoerd": {
+    "name": "Sjoerd",
+    "maxGuests": 1
+  },
+  "willemijn": {
+    "name": "Willemijn",
+    "maxGuests": 5
+  }
+}

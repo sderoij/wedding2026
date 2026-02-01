@@ -17,6 +17,7 @@
   },
   "rsvp": {
     "title": "RSVP",
+    "welcome": "Welcome, {name}!",
     "description": "Fill out the form to let us know if you're coming",
     "form": {
       "name": "Name",

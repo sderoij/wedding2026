@@ -17,6 +17,7 @@
   },
   "rsvp": {
     "title": "Laat weten of je komt",
+    "welcome": "Welkom, {name}!",
     "description": "Vul het formulier in om ons te laten weten of je komt",
     "form": {
       "name": "Naam",

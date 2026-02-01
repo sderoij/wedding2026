@@ -1,7 +1,5 @@
 <template>
   <div class="min-h-screen textured-bg">
-    <Navigation />
-
     <main class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="bg-warmwhite rounded-xl shadow-sm p-8 border border-forest-sage/20">
         <h1 class="text-3xl font-bold text-forest-dark mb-4 decorative-line pb-3">
@@ -42,22 +40,20 @@
 const { t } = useI18n()
 const router = useRouter()
 const route = useRoute()
+const { validateCode, saveCode } = useGuestCode()
 
 const code = ref('')
 const error = ref(false)
 
-// Hardcoded access code (will be visible in client JS, but that's acceptable)
-const ACCESS_CODE = 'wedding2026'
-
 const handleSubmit = () => {
-  if (code.value === ACCESS_CODE) {
-    // Store in localStorage
-    if (process.client) {
-      localStorage.setItem('wedding_access', 'granted')
-    }
+  const guest = validateCode(code.value)
 
-    // Redirect to RSVP or original destination
-    const redirect = route.query.redirect as string || '/rsvp'
+  if (guest) {
+    // Save code to localStorage
+    saveCode(code.value)
+
+    // Redirect to original destination or home
+    const redirect = route.query.redirect as string || '/'
     router.push(redirect)
   } else {
     error.value = true
