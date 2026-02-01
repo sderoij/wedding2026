@@ -2,16 +2,16 @@
  * Google Apps Script for Wedding RSVP Management
  *
  * This script receives RSVP data from the wedding website frontend,
- * validates it, manages duplicate email handling, auto-increments RSVP_IDs,
+ * validates it, handles updates by deleting previous responses,
  * and writes data to Google Sheets.
  *
  * Sheet Structure (columns A-I):
  * - Timestamp: ISO datetime when RSVP was submitted
  * - RSVP_ID: Auto-increment ID starting from 1
- * - Email: Guest email address (unique identifier)
+ * - Email: Guest email address
  * - Aanwezig: "ja" or "nee" (attending status)
  * - Taal: "nl" or "en" (language preference)
- * - Status: "Actief" or "Vervangen" (active or replaced)
+ * - Code: Guest invitation code (unique identifier)
  * - GastNummer: Guest number (1, 2, 3, etc.)
  * - Naam: Guest name
  * - Dieetwensen: Dietary requirements
@@ -52,14 +52,10 @@ function doPost(e) {
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
     // Extract data from the request
-    const { email, attending, language, guests } = data;
+    const { email, attending, language, guests, code } = data;
 
-    // Check for existing active RSVP with this email
-    const existingRow = findActiveRsvpByEmail(sheet, email);
-    if (existingRow !== null) {
-      // Mark the existing RSVP as "Vervangen"
-      markAsReplaced(sheet, email);
-    }
+    // Delete any existing RSVP with this code
+    deleteByCode(sheet, code);
 
     // Get the next RSVP_ID
     const rsvpId = getNextRsvpId(sheet);
@@ -78,10 +74,10 @@ function doPost(e) {
         email,                  // Email
         attendingValue,         // Aanwezig
         language,               // Taal
-        "Actief",              // Status
-        index + 1,             // GastNummer
-        guest.name,            // Naam
-        guest.dietary || ""    // Dieetwensen
+        code,                   // Code
+        index + 1,              // GastNummer
+        guest.name,             // Naam
+        guest.dietary || ""     // Dieetwensen
       ];
       rows.push(row);
     });
@@ -89,7 +85,7 @@ function doPost(e) {
     // Append all rows to the sheet
     if (rows.length > 0) {
       sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, 9).setValues(rows);
-      Logger.log("Successfully added " + rows.length + " row(s) for email: " + email);
+      Logger.log("Successfully added " + rows.length + " row(s) for code: " + code);
     }
 
     // Return success response
@@ -124,6 +120,10 @@ function validateRequest(data) {
     return { valid: false, error: "Missing or invalid 'language' field (must be 'nl' or 'en')" };
   }
 
+  if (!data.code || typeof data.code !== 'string') {
+    return { valid: false, error: "Missing or invalid 'code' field" };
+  }
+
   if (!Array.isArray(data.guests) || data.guests.length === 0) {
     return { valid: false, error: "Missing or invalid 'guests' field (must be non-empty array)" };
   }
@@ -152,46 +152,31 @@ function validateRequest(data) {
 }
 
 /**
- * Finds the row number of an active RSVP with the given email
- * @param {Sheet} sheet - The Google Sheet to search
- * @param {string} email - The email address to search for
- * @returns {number|null} Row number if found, null otherwise
+ * Deletes all rows with the given code
+ * @param {Sheet} sheet - The Google Sheet to update
+ * @param {string} code - The guest code to delete
  */
-function findActiveRsvpByEmail(sheet, email) {
+function deleteByCode(sheet, code) {
   const data = sheet.getDataRange().getValues();
 
-  // Skip header row if present (row 0)
-  for (let i = 1; i < data.length; i++) {
-    const row = data[i];
-    const rowEmail = row[2];      // Column C (Email)
-    const rowStatus = row[5];     // Column F (Status)
+  // Find rows to delete (from bottom to top to preserve indices)
+  const rowsToDelete = [];
 
-    if (rowEmail === email && rowStatus === "Actief") {
-      return i + 1; // Return 1-based row number
+  // Skip header row (row 0)
+  for (let i = 1; i < data.length; i++) {
+    const rowCode = data[i][5]; // Column F (Code)
+    if (rowCode === code) {
+      rowsToDelete.push(i + 1); // 1-based row number
     }
   }
 
-  return null;
-}
+  // Delete rows from bottom to top
+  rowsToDelete.reverse().forEach(rowNum => {
+    sheet.deleteRow(rowNum);
+  });
 
-/**
- * Marks all active RSVPs with the given email as "Vervangen"
- * @param {Sheet} sheet - The Google Sheet to update
- * @param {string} email - The email address to mark as replaced
- */
-function markAsReplaced(sheet, email) {
-  const data = sheet.getDataRange().getValues();
-
-  // Skip header row if present (row 0)
-  for (let i = 1; i < data.length; i++) {
-    const row = data[i];
-    const rowEmail = row[2];      // Column C (Email)
-    const rowStatus = row[5];     // Column F (Status)
-
-    if (rowEmail === email && rowStatus === "Actief") {
-      // Update status to "Vervangen" (column F, which is column 6)
-      sheet.getRange(i + 1, 6).setValue("Vervangen");
-    }
+  if (rowsToDelete.length > 0) {
+    Logger.log("Deleted " + rowsToDelete.length + " existing row(s) for code: " + code);
   }
 }
 

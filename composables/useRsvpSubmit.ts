@@ -1,3 +1,5 @@
+import type { SavedGuest } from './useRsvpStorage'
+
 export interface Guest {
   name: string
   email?: string  // Only first guest has email
@@ -14,12 +16,13 @@ export interface RsvpFormData {
 export const useRsvpSubmit = () => {
   const config = useRuntimeConfig()
   const { locale } = useI18n()
+  const { saveResponse } = useRsvpStorage()
 
   const isSubmitting = ref(false)
   const submitError = ref<string | null>(null)
   const submitSuccess = ref(false)
 
-  const submitRsvp = async (formData: RsvpFormData) => {
+  const submitRsvp = async (formData: RsvpFormData, code: string) => {
     isSubmitting.value = true
     submitError.value = null
     submitSuccess.value = false
@@ -51,12 +54,13 @@ export const useRsvpSubmit = () => {
         }
       }
 
-      // Prepare payload with email and language at root level (as Apps Script expects)
+      // Prepare payload with email, language, and code at root level
       const payload = {
         email: formData.guests[0].email,
         language: locale.value,
         attending: formData.attending,
-        guests: formData.guests
+        guests: formData.guests,
+        code: code
       }
 
       // Submit to Google Apps Script using no-cors mode
@@ -72,7 +76,9 @@ export const useRsvpSubmit = () => {
       })
 
       // If we reach here without throwing, assume success
-      // (we can't read the response with no-cors mode)
+      // Save response to localStorage for viewing/editing later
+      saveResponse(code, formData.attending, formData.guests as SavedGuest[])
+
       submitSuccess.value = true
     } catch (err: any) {
       console.error('RSVP submission error:', err)
@@ -82,10 +88,16 @@ export const useRsvpSubmit = () => {
     }
   }
 
+  const resetState = () => {
+    submitError.value = null
+    submitSuccess.value = false
+  }
+
   return {
     isSubmitting,
     submitError,
     submitSuccess,
-    submitRsvp
+    submitRsvp,
+    resetState
   }
 }

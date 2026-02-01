@@ -37,9 +37,17 @@
       "guestName": "Name",
       "guestNamePlaceholder": "Name of guest {number}",
       "guestDietary": "Dietary requirements/allergies",
-      "guestDietaryPlaceholder": "E.g.: vegetarian, lactose intolerant..."
+      "guestDietaryPlaceholder": "E.g.: vegetarian, lactose intolerant...",
+      "cancel": "Cancel"
     },
-    "success": "Thank you! Your RSVP has been received.",
+    "summary": {
+      "confirmedTitle": "You've confirmed your attendance!",
+      "declinedTitle": "You've indicated you won't be attending",
+      "guests": "Guests",
+      "edit": "Edit",
+      "viewResponse": "View your response"
+    },
+    "success": "Thank you! Your RSVP has been received. More information to follow!",
     "error": "Something went wrong. Please try again.",
     "errorEmailUsed": "This email address has already been used."
   },

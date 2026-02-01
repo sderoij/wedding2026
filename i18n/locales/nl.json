@@ -37,9 +37,17 @@
       "guestName": "Naam",
       "guestNamePlaceholder": "Naam van gast {number}",
       "guestDietary": "Dieetwensen/allergieën",
-      "guestDietaryPlaceholder": "Bijvoorbeeld: vegetarisch, lactose-intolerant..."
+      "guestDietaryPlaceholder": "Bijvoorbeeld: vegetarisch, lactose-intolerant...",
+      "cancel": "Annuleren"
     },
-    "success": "Bedankt! Je reactie is ontvangen.",
+    "summary": {
+      "confirmedTitle": "Je hebt je aangemeld!",
+      "declinedTitle": "Je hebt aangegeven niet te komen",
+      "guests": "Gasten",
+      "edit": "Wijzigen",
+      "viewResponse": "Bekijk je reactie"
+    },
+    "success": "Bedankt! Je reactie is ontvangen. Meer informatie volgt!",
     "error": "Er ging iets mis. Probeer het opnieuw.",
     "errorEmailUsed": "Dit emailadres is al gebruikt."
   },
