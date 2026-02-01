@@ -51,30 +51,29 @@ export const useRsvpSubmit = () => {
         }
       }
 
-      // Prepare payload
+      // Prepare payload with email and language at root level (as Apps Script expects)
       const payload = {
-        numberOfGuests: formData.numberOfGuests,
+        email: formData.guests[0].email,
+        language: locale.value,
         attending: formData.attending,
-        guests: formData.guests,
-        locale: locale.value
+        guests: formData.guests
       }
 
-      // Submit to Google Apps Script
-      const response = await $fetch(config.public.appsScriptUrl, {
+      // Submit to Google Apps Script using no-cors mode
+      // Google Apps Script web apps have CORS issues, but the request still goes through
+      // With no-cors we can't read the response, but we assume success if no network error
+      await fetch(config.public.appsScriptUrl, {
         method: 'POST',
+        mode: 'no-cors',
         body: JSON.stringify(payload),
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'text/plain'
         }
       })
 
-      const result = response as { success: boolean; error?: string }
-
-      if (result.success) {
-        submitSuccess.value = true
-      } else {
-        submitError.value = result.error || 'Unknown error'
-      }
+      // If we reach here without throwing, assume success
+      // (we can't read the response with no-cors mode)
+      submitSuccess.value = true
     } catch (err: any) {
       console.error('RSVP submission error:', err)
       submitError.value = err.message || 'Network error'

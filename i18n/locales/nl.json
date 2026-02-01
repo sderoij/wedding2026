@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "rsvp": "RSVP",
+    "rsvp": "Laat weten of je komt",
     "accommodation": "Accommodatie"
   },
   "home": {
@@ -16,7 +16,7 @@
     "rsvpCta": "Laat ons weten of je erbij bent!"
   },
   "rsvp": {
-    "title": "RSVP",
+    "title": "Laat weten of je komt",
     "description": "Vul het formulier in om ons te laten weten of je komt",
     "form": {
       "name": "Naam",
@@ -38,7 +38,7 @@
       "guestDietary": "Dieetwensen/allergieën",
       "guestDietaryPlaceholder": "Bijvoorbeeld: vegetarisch, lactose-intolerant..."
     },
-    "success": "Bedankt! Je RSVP is ontvangen.",
+    "success": "Bedankt! Je reactie is ontvangen.",
     "error": "Er ging iets mis. Probeer het opnieuw.",
     "errorEmailUsed": "Dit emailadres is al gebruikt."
   },

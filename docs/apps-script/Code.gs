@@ -18,12 +18,27 @@
  */
 
 /**
+ * Handles GET requests - returns basic info about the API
+ * @param {Object} e - Event object
+ * @returns {ContentService.TextOutput} JSON response
+ */
+function doGet(e) {
+  return ContentService.createTextOutput(JSON.stringify({
+    status: 'ok',
+    message: 'Wedding RSVP API - use POST to submit RSVPs'
+  })).setMimeType(ContentService.MimeType.JSON);
+}
+
+/**
  * Main entry point for POST requests from the frontend
  * @param {Object} e - Event object containing the POST request data
  * @returns {ContentService.TextOutput} JSON response
  */
 function doPost(e) {
   try {
+    // Log raw input for debugging
+    Logger.log("Raw postData: " + e.postData.contents);
+
     // Parse the incoming JSON payload
     const data = JSON.parse(e.postData.contents);
 
@@ -74,6 +89,7 @@ function doPost(e) {
     // Append all rows to the sheet
     if (rows.length > 0) {
       sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, 9).setValues(rows);
+      Logger.log("Successfully added " + rows.length + " row(s) for email: " + email);
     }
 
     // Return success response
@@ -92,6 +108,9 @@ function doPost(e) {
  * @returns {Object} Object with 'valid' boolean and optional 'error' message
  */
 function validateRequest(data) {
+  // Log incoming data for debugging
+  Logger.log("Received data: " + JSON.stringify(data));
+
   // Check required fields
   if (!data.email || typeof data.email !== 'string') {
     return { valid: false, error: "Missing or invalid 'email' field" };
