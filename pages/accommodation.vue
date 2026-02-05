@@ -42,7 +42,7 @@ const hotels = [
     name: 'Fletcher Hotel-Restaurant Oud London',
     distance: '~1.5 km',
     price: '€65-105',
-    image: 'https://picsum.photos/seed/oudlondon/400/300',
+    image: 'https://www.hoteloudlondon.nl/data/images/1/5/7/0/4/3/homepage-oudlondon1.jpg',
     website: 'https://www.hoteloudlondon.nl/en/'
   },
   {
@@ -50,7 +50,7 @@ const hotels = [
     name: 'Hotel Woudschoten',
     distance: '~2 km',
     price: '€120+',
-    image: 'https://picsum.photos/seed/woudschoten/400/300',
+    image: 'https://www.woudschoten.nl/wp-content/uploads/2018/08/Woudschoten-Atriumkamer-.jpg',
     website: 'https://www.woudschoten.nl/en/'
   },
   {
@@ -58,8 +58,8 @@ const hotels = [
     name: 'Kasteel Kerckebosch',
     distance: '~5 km',
     price: '€135+',
-    image: 'https://picsum.photos/seed/kerckebosch/400/300',
-    website: 'https://www.hotelkerckebosch.nl/'
+    image: 'https://www.kasteelkerckebosch.com/upload/heading/home-1500x1000_38.jpg',
+    website: 'https://www.kasteelkerckebosch.com/en/'
   },
   {
     id: 4,
@@ -69,7 +69,7 @@ const hotels = [
     priceType: 'perCampingPitch',
     priceNote: 'minimum2Nights',
     note: 'bungalowsAvailable',
-    image: 'https://picsum.photos/seed/krakeling/400/300',
+    image: 'https://www.dekrakeling.nl/assets/photogallery/9485/239022.jpg',
     website: 'https://www.dekrakeling.nl/en'
   },
   {
@@ -79,7 +79,7 @@ const hotels = [
     price: '~€25+',
     priceType: 'perCampingPitch',
     note: 'bungalowsAvailable',
-    image: 'https://picsum.photos/seed/grotebos/400/300',
+    image: 'https://d12lbzksufiz5y.cloudfront.net/files/7/1/1/4/2/1/RCN-het-Grote-Bos-vakantiepark-Utrechtse-Heuvelrug-gezin-natuur(3).jpg',
     website: 'https://www.rcn.nl/en/holiday-park/holland/utrecht/rcn-het-grote-bos'
   }
 ]
