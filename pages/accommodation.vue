@@ -11,7 +11,12 @@
           <div class="hotel-info">
             <h3>{{ hotel.name }}</h3>
             <p class="distance">{{ t('accommodation.distance') }}: {{ hotel.distance }}</p>
-            <p class="price">{{ t('accommodation.price') }}: {{ hotel.price }}</p>
+            <p class="price">
+              {{ t('accommodation.price') }}: {{ hotel.price }}
+              <template v-if="hotel.priceType"> {{ t(`accommodation.${hotel.priceType}`) }}</template>
+              <template v-if="hotel.priceNote"> ({{ t(`accommodation.${hotel.priceNote}`) }})</template>
+            </p>
+            <p v-if="hotel.note" class="note">{{ t(`accommodation.${hotel.note}`) }}</p>
             <a :href="hotel.website" target="_blank" rel="noopener" class="website-link">
               {{ t('accommodation.visitWebsite') }}
             </a>
@@ -35,7 +40,7 @@ const hotels = [
   {
     id: 1,
     name: 'Fletcher Hotel-Restaurant Oud London',
-    distance: '~6 km',
+    distance: '~1.5 km',
     price: '€65-105',
     image: 'https://picsum.photos/seed/oudlondon/400/300',
     website: 'https://www.hoteloudlondon.nl/en/'
@@ -43,34 +48,39 @@ const hotels = [
   {
     id: 2,
     name: 'Hotel Woudschoten',
-    distance: '~8 km',
-    price: '€98+',
+    distance: '~2 km',
+    price: '€120+',
     image: 'https://picsum.photos/seed/woudschoten/400/300',
     website: 'https://www.woudschoten.nl/en/'
   },
   {
     id: 3,
     name: 'Kasteel Kerckebosch',
-    distance: '~7 km',
-    price: '€150+',
+    distance: '~5 km',
+    price: '€135+',
     image: 'https://picsum.photos/seed/kerckebosch/400/300',
     website: 'https://www.hotelkerckebosch.nl/'
   },
   {
     id: 4,
-    name: 'Logies op Dreef',
-    distance: '~10 km',
-    price: '€86+',
-    image: 'https://picsum.photos/seed/dreef/400/300',
-    website: 'https://logiesopdreef.nl/en/'
+    name: 'Vakantiepark De Krakeling',
+    distance: '~2 km',
+    price: '€80-90',
+    priceType: 'perCampingPitch',
+    priceNote: 'minimum2Nights',
+    note: 'bungalowsAvailable',
+    image: 'https://picsum.photos/seed/krakeling/400/300',
+    website: 'https://www.dekrakeling.nl/en'
   },
   {
     id: 5,
-    name: 'Vakantiepark De Krakeling',
-    distance: '~5 km',
-    price: 'Variabel',
-    image: 'https://picsum.photos/seed/krakeling/400/300',
-    website: 'https://www.dekrakeling.nl/'
+    name: 'RCN het Grote Bos',
+    distance: '~6 km',
+    price: '~€25+',
+    priceType: 'perCampingPitch',
+    note: 'bungalowsAvailable',
+    image: 'https://picsum.photos/seed/grotebos/400/300',
+    website: 'https://www.rcn.nl/en/holiday-park/holland/utrecht/rcn-het-grote-bos'
   }
 ]
 </script>
@@ -132,6 +142,13 @@ h1 {
 .price {
   margin: 0.5rem 0;
   color: #8FAE9A;
+}
+
+.note {
+  margin: 0.25rem 0 0;
+  color: #8FAE9A;
+  font-size: 0.9em;
+  font-style: italic;
 }
 
 .website-link {

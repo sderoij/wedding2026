@@ -56,6 +56,10 @@
     "description": "Recommended hotels and stays nearby",
     "distance": "Distance",
     "price": "Price range",
+    "perNight": "per night",
+    "perCampingPitch": "per camping pitch",
+    "minimum2Nights": "2 night minimum",
+    "bungalowsAvailable": "Bungalows/chalets also available",
     "visitWebsite": "Visit website"
   },
   "access": {

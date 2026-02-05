@@ -56,6 +56,10 @@
     "description": "Aanbevolen hotels en verblijven in de buurt",
     "distance": "Afstand",
     "price": "Prijsindicatie",
+    "perNight": "per nacht",
+    "perCampingPitch": "per kampeerplaats",
+    "minimum2Nights": "min. 2 nachten",
+    "bungalowsAvailable": "Bungalows/chalets ook beschikbaar",
     "visitWebsite": "Bekijk website"
   },
   "access": {
