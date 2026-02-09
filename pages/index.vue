@@ -74,41 +74,41 @@ const localePath = useLocalePath()
 
 // Left strip photos
 const photosLeft = ref([
-  '/wedding2026/images/image00001.jpeg',
-  '/wedding2026/images/image00002.jpeg',
-  '/wedding2026/images/image00003.jpeg',
-  '/wedding2026/images/image00004.jpeg',
-  '/wedding2026/images/image00005.jpeg',
-  '/wedding2026/images/image00006.jpeg',
-  '/wedding2026/images/image00007.jpeg',
-  '/wedding2026/images/image00008.jpeg',
-  '/wedding2026/images/image00009.jpeg',
-  '/wedding2026/images/image00010.jpeg',
-  '/wedding2026/images/image00011.jpeg',
-  '/wedding2026/images/image00012.jpeg',
-  '/wedding2026/images/image00013.jpeg',
-  '/wedding2026/images/IMG_0738.jpeg',
-  '/wedding2026/images/IMG_2778.jpeg',
-  '/wedding2026/images/IMG_4367.jpeg'
+  '/images/image00001.jpeg',
+  '/images/image00002.jpeg',
+  '/images/image00003.jpeg',
+  '/images/image00004.jpeg',
+  '/images/image00005.jpeg',
+  '/images/image00006.jpeg',
+  '/images/image00007.jpeg',
+  '/images/image00008.jpeg',
+  '/images/image00009.jpeg',
+  '/images/image00010.jpeg',
+  '/images/image00011.jpeg',
+  '/images/image00012.jpeg',
+  '/images/image00013.jpeg',
+  '/images/IMG_0738.jpeg',
+  '/images/IMG_2778.jpeg',
+  '/images/IMG_4367.jpeg'
 ])
 
 // Right strip photos
 const photosRight = ref([
-  '/wedding2026/images/image00014.jpeg',
-  '/wedding2026/images/image00015.jpeg',
-  '/wedding2026/images/image00016.jpeg',
-  '/wedding2026/images/image00017.jpeg',
-  '/wedding2026/images/image00018.jpeg',
-  '/wedding2026/images/image00019.jpeg',
-  '/wedding2026/images/image00020.jpeg',
-  '/wedding2026/images/image00021.jpeg',
-  '/wedding2026/images/image00022.jpeg',
-  '/wedding2026/images/image00023.jpeg',
-  '/wedding2026/images/image00024.jpeg',
-  '/wedding2026/images/image00025.jpeg',
-  '/wedding2026/images/IMG_1113.jpg',
-  '/wedding2026/images/IMG_6915.jpeg',
-  '/wedding2026/images/IMG_8652.jpeg'
+  '/images/image00014.jpeg',
+  '/images/image00015.jpeg',
+  '/images/image00016.jpeg',
+  '/images/image00017.jpeg',
+  '/images/image00018.jpeg',
+  '/images/image00019.jpeg',
+  '/images/image00020.jpeg',
+  '/images/image00021.jpeg',
+  '/images/image00022.jpeg',
+  '/images/image00023.jpeg',
+  '/images/image00024.jpeg',
+  '/images/image00025.jpeg',
+  '/images/IMG_1113.jpg',
+  '/images/IMG_6915.jpeg',
+  '/images/IMG_8652.jpeg'
 ])
 </script>
 
