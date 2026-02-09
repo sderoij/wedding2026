@@ -1,14 +1,264 @@
 {
-  "dorien": {
-    "name": "Dorien",
-    "maxGuests": 2
-  },
   "sjoerd": {
     "name": "Sjoerd",
     "maxGuests": 1
   },
   "willemijn": {
     "name": "Willemijn",
-    "maxGuests": 5
+    "maxGuests": 1
+  },
+  "frits": {
+    "name": "Frits",
+    "maxGuests": 1
+  },
+  "gerdi": {
+    "name": "Gerdi",
+    "maxGuests": 1
+  },
+  "arian": {
+    "name": "Arian",
+    "maxGuests": 1
+  },
+  "janneke": {
+    "name": "Janneke",
+    "maxGuests": 1
+  },
+  "theo": {
+    "name": "Theo",
+    "maxGuests": 1
+  },
+
+  "flora": {
+    "name": "Flora",
+    "maxGuests": 3
+  },
+  "tessa": {
+    "name": "Tessa",
+    "maxGuests": 2
+  },
+  "rachael": {
+    "name": "Rachael",
+    "maxGuests": 2
+  },
+  "nemat": {
+    "name": "Nemat",
+    "maxGuests": 1
+  },
+  "tuuli": {
+    "name": "Tuuli",
+    "maxGuests": 1
+  },
+  "ditte": {
+    "name": "Ditte",
+    "maxGuests": 4
+  },
+
+  "daantje": {
+    "name": "Daantje",
+    "maxGuests": 1
+  },
+  "roos": {
+    "name": "Roos",
+    "maxGuests": 1
+  },
+  "anna": {
+    "name": "Anna",
+    "maxGuests": 1
+  },
+  "mila": {
+    "name": "Mila",
+    "maxGuests": 1
+  },
+  "linde": {
+    "name": "Linde",
+    "maxGuests": 1
+  },
+  "dorien": {
+    "name": "Dorien",
+    "maxGuests": 1
+  },
+  "marleen": {
+    "name": "Marleen",
+    "maxGuests": 1
+  },
+  "kim": {
+    "name": "Kim",
+    "maxGuests": 1
+  },
+  "marieke": {
+    "name": "Marieke",
+    "maxGuests": 1
+  },
+  "luca": {
+    "name": "Luca",
+    "maxGuests": 1
+  },
+  "marloes": {
+    "name": "Marloes",
+    "maxGuests": 1
+  },
+  "floris": {
+    "name": "Floris",
+    "maxGuests": 1
+  },
+  "wijke": {
+    "name": "Wijke",
+    "maxGuests": 1
+  },
+  "hidde": {
+    "name": "Hidde",
+    "maxGuests": 1
+  },
+  "jair": {
+    "name": "Jaïr",
+    "maxGuests": 1
+  },
+  "ruben": {
+    "name": "Ruben",
+    "maxGuests": 1
+  },
+  "hans": {
+    "name": "Hans",
+    "maxGuests": 1
+  },
+  "ed": {
+    "name": "Ed",
+    "maxGuests": 1
+  },
+  "driek": {
+    "name": "Driek",
+    "maxGuests": 1
+  },
+  "daan": {
+    "name": "Daan",
+    "maxGuests": 1
+  },
+  "just": {
+    "name": "Just",
+    "maxGuests": 1
+  },
+  "merel": {
+    "name": "Merel",
+    "maxGuests": 1
+  },
+  "joachim": {
+    "name": "Joachim",
+    "maxGuests": 1
+  },
+  "jac": {
+    "name": "Jac",
+    "maxGuests": 1
+  },
+  "paul-robbert": {
+    "name": "Paul Robbert",
+    "maxGuests": 1
+  },
+
+  "eugenie": {
+    "name": "Eugenie",
+    "maxGuests": 2
+  },
+  "gijs": {
+    "name": "Gijs",
+    "maxGuests": 2
+  },
+  "lenneke": {
+    "name": "Lenneke",
+    "maxGuests": 2
+  },
+  "toine": {
+    "name": "Toine",
+    "maxGuests": 2
+  },
+  "andre": {
+    "name": "André",
+    "maxGuests": 2
+  },
+  "paul": {
+    "name": "Paul",
+    "maxGuests": 2
+  },
+  "lisa": {
+    "name": "Lisa",
+    "maxGuests": 2
+  },
+  "pim": {
+    "name": "Pim",
+    "maxGuests": 2
+  },
+  "matthieu": {
+    "name": "Matthieu",
+    "maxGuests": 2
+  },
+  "andrea": {
+    "name": "Andrea",
+    "maxGuests": 2
+  },
+
+  "bob": {
+    "name": "Bob",
+    "maxGuests": 2
+  },
+  "raphael": {
+    "name": "Raphaël",
+    "maxGuests": 2
+  },
+  "max": {
+    "name": "Max",
+    "maxGuests": 2
+  },
+  "jun": {
+    "name": "Jun",
+    "maxGuests": 1
+  },
+  "peter": {
+    "name": "Peter",
+    "maxGuests": 2
+  },
+  "weiwei": {
+    "name": "Weiwei",
+    "maxGuests": 1
+  },
+
+  "niels": {
+    "name": "Niels",
+    "maxGuests": 3
+  },
+  "marc": {
+    "name": "Marc",
+    "maxGuests": 2
+  },
+  "damian": {
+    "name": "Damian",
+    "maxGuests": 2
+  },
+
+  "collin": {
+    "name": "Collin",
+    "maxGuests": 1
+  },
+  "joren": {
+    "name": "Joren",
+    "maxGuests": 1
+  },
+  "gerry": {
+    "name": "Gerry",
+    "maxGuests": 1
+  },
+  "martin": {
+    "name": "Martin",
+    "maxGuests": 1
+  },
+  "ro": {
+    "name": "Ro",
+    "maxGuests": 1
+  },
+  "martine": {
+    "name": "Martine",
+    "maxGuests": 1
+  },
+  "niek-jan": {
+    "name": "Niek-Jan",
+    "maxGuests": 1
   }
 }
