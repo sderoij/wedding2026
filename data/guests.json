@@ -9,19 +9,11 @@
   },
   "frits": {
     "name": "Frits",
-    "maxGuests": 1
-  },
-  "gerdi": {
-    "name": "Gerdi",
-    "maxGuests": 1
+    "maxGuests": 2
   },
   "arian": {
     "name": "Arian",
-    "maxGuests": 1
-  },
-  "janneke": {
-    "name": "Janneke",
-    "maxGuests": 1
+    "maxGuests": 2
   },
   "theo": {
     "name": "Theo",
