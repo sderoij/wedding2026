@@ -252,5 +252,18 @@
   "niek-jan": {
     "name": "Niek-Jan",
     "maxGuests": 1
+  },
+
+  "visy": {
+    "name": "Yvet",
+    "maxGuests": 1
+  },
+  "kuip": {
+    "name": "Merel",
+    "maxGuests": 1
+  },
+  "bosp": {
+    "name": "Priscilla",
+    "maxGuests": 1
   }
 }
