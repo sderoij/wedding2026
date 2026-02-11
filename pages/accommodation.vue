@@ -55,14 +55,6 @@ const hotels = [
   },
   {
     id: 3,
-    name: 'Kasteel Kerckebosch',
-    distance: '~5 km',
-    price: '€135+',
-    image: 'https://www.kasteelkerckebosch.com/upload/heading/home-1500x1000_38.jpg',
-    website: 'https://www.kasteelkerckebosch.com/en/'
-  },
-  {
-    id: 4,
     name: 'Vakantiepark De Krakeling',
     distance: '~2 km',
     price: '€80-90',
@@ -71,6 +63,14 @@ const hotels = [
     note: 'bungalowsAvailable',
     image: 'https://www.dekrakeling.nl/assets/photogallery/9485/239022.jpg',
     website: 'https://www.dekrakeling.nl/en'
+  },
+  {
+    id: 4,
+    name: 'Kasteel Kerckebosch',
+    distance: '~5 km',
+    price: '€135+',
+    image: 'https://www.kasteelkerckebosch.com/upload/heading/home-1500x1000_38.jpg',
+    website: 'https://www.kasteelkerckebosch.com/en/'
   },
   {
     id: 5,

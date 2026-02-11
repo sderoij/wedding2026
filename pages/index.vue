@@ -16,16 +16,15 @@
         </p>
       </section>
 
-      <!-- Photo Booth Strips -->
-      <section class="mb-12">
-        <div class="photo-strips-container">
-          <div class="strip-wrapper left-strip">
-            <PhotoBoothStrip :photos="photosLeft" orientation="left" />
-          </div>
-          <div class="strip-wrapper right-strip hidden md:block">
-            <PhotoBoothStrip :photos="photosRight" orientation="right" :delay="1000" />
-          </div>
-        </div>
+      <!-- Location Section -->
+      <section class="mb-12 bg-warmwhite rounded-xl shadow-sm p-8 border border-forest-sage/20 text-center">
+        <h2 class="text-3xl font-semibold text-forest-dark mb-4">
+          {{ $t('home.location.title') }}
+        </h2>
+        <p class="text-2xl text-gold mb-2">
+          Beauforthuis
+        </p>
+        <p class="text-lg text-forest-sage">Woudenbergseweg 70, 3711 AB Austerlitz</p>
       </section>
 
       <!-- More Info Section -->
@@ -34,19 +33,6 @@
           {{ $t('home.moreInfo') }} 🐧
         </p>
       </section>
-
-      <!-- Location Section (for when confirmed) -->
-      <!--
-      <section class="mb-12 bg-warmwhite rounded-xl shadow-sm p-8 border border-forest-sage/20 text-center">
-        <h2 class="text-3xl font-semibold text-forest-dark mb-4">
-          {{ $t('home.location.title') }}
-        </h2>
-        <p class="text-2xl text-gold mb-2">
-          Beauforthuis
-        </p>
-        <p class="text-lg text-forest-sage">Bergweg 6, 3927 BK Austerlitz</p>
-      </section>
-      -->
 
       <!-- CTA Section -->
       <section class="text-center">
@@ -59,6 +45,18 @@
         >
           {{ $t('nav.rsvp') }}
         </NuxtLink>
+      </section>
+
+      <!-- Photo Booth Strips -->
+      <section class="mb-12">
+        <div class="photo-strips-container">
+          <div class="strip-wrapper left-strip">
+            <PhotoBoothStrip :photos="photosLeft" orientation="left" />
+          </div>
+          <div class="strip-wrapper right-strip hidden md:block">
+            <PhotoBoothStrip :photos="photosRight" orientation="right" :delay="1000" />
+          </div>
+        </div>
       </section>
     </main>
   </div>
