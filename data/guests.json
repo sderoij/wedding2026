@@ -269,5 +269,9 @@
   "lars": {
     "name": "Lars",
     "maxGuests": 1
+  },
+  "elwin": {
+    "name": "Elwin",
+    "maxGuests": 1
   }
 }
