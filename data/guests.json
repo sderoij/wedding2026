@@ -19,6 +19,34 @@
     "name": "Theo",
     "maxGuests": 1
   },
+  "hardy": {
+    "name": "Hardy",
+    "maxGuest": 2
+  },
+  "maria": {
+    "name": "Maria",
+    "maxGuests": 1
+  },
+  "paula": {
+    "name": "Paula",
+    "maxGuests": 1
+  },
+  "wim": {
+    "name": "Wim",
+    "maxGuests": 1
+  },
+  "jose": {
+    "name": "José",
+    "maxGuests": 1
+  },
+  "jolanda": {
+    "name": "Jolanda",
+    "maxGuests": 1
+  },
+  "tineke": {
+    "name": "Tineke",
+    "maxGuests": 1
+  },
 
   "flora": {
     "name": "Flora",
