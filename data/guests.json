@@ -56,6 +56,10 @@
     "name": "Tessa",
     "maxGuests": 2
   },
+  "yente": {
+    "name": "Yente",
+    "maxGuests": 1
+  },
   "rachael": {
     "name": "Rachael",
     "maxGuests": 2
